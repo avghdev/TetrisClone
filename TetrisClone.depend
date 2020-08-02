@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1596405505 source:c:\users\avery\desktop\c++\tetrisclone\main.cpp
+	<iostream>
+	<Windows.h>
+
