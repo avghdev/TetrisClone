@@ -136,8 +136,9 @@ int main()
     //variable to keep track of how many pieces have been placed
     int nPieceCount = 0;
 
-    //score variable
+    //score & level variable
     int nScore = 0;
+    int nLevel = 1;
 
     vector<int> vLines;
 
@@ -186,7 +187,10 @@ int main()
                 nPieceCount++;
                 //if 10 pieces have been placed, decrease speed var (which will actually make things drop down faster)
                 if(nPieceCount % 10 == 0)
-                    if (nSpeed >= 10) nSpeed--;
+                    if (nSpeed >= 10) {
+                      nSpeed--;
+                      nLevel++;
+                    }
 
 
                 // Check if we have any lines (only need to check the 4 lines the tetronimo just placed resides on
@@ -243,8 +247,9 @@ int main()
 
         }
 
-        //Draw Score (need to review this too)
-        swprintf_s(&screen[2 * nScreenWidth + nFieldHeight + 6], 16, L"SCORE: %8d", nScore);
+        //Draw Score AND Level
+        swprintf_s(&screen[2 * nScreenWidth + nFieldHeight], 16, L"SCORE: %8d", nScore);
+        swprintf_s(&screen[3 * nScreenWidth + nFieldHeight], 16, L"LEVEL: %8d", nLevel);
 
         //CODE TO BE REVIEWED ========================
 
